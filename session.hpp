@@ -106,7 +106,7 @@ public:
     
     // Set a timeout on the operation
     // Suspect of terminating the stream with "partial message" error
-    stream_.expires_after(std::chrono::seconds(10));
+    stream_.expires_after(std::chrono::seconds(1));
     
     // Send the HTTP request to the remote host
     http::async_write(stream_, req_,
@@ -126,7 +126,7 @@ public:
       return fail(ec, "write");
 
     // Remove timeout; may terminate long download
-    stream_.expires_never();
+    //stream_.expires_never();
     
     // Receive the HTTP response
     http::async_read_header(stream_, buffer_, parser_,
