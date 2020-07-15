@@ -38,7 +38,7 @@ int main(int argc, char** argv)
   // Run the I/O service. The call will return when
   // the get operation is complete.
   std::vector<std::thread> tvec;
-  for (int t=0; t<2; ++t)
+  for (int t=0; t<4; ++t)
     {
       tvec.emplace_back([&ioc] { ioc.run(); });
     }

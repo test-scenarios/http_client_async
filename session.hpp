@@ -88,7 +88,7 @@ public:
       return fail(ec, "resolve");
     
     // Set a timeout on the operation
-    //stream_.expires_after(std::chrono::seconds(30));
+    stream_.expires_after(std::chrono::seconds(10));
     
     // Make the connection on the IP address we get from a lookup
     stream_.async_connect(
@@ -106,7 +106,7 @@ public:
     
     // Set a timeout on the operation
     // Suspect of terminating the stream with "partial message" error
-    stream_.expires_after(std::chrono::seconds(30));
+    stream_.expires_after(std::chrono::seconds(10));
     
     // Send the HTTP request to the remote host
     http::async_write(stream_, req_,
