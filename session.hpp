@@ -12,7 +12,7 @@
 namespace beast = boost::beast;         // from <boost/beast.hpp>
 namespace http = beast::http;           // from <boost/beast/http.hpp>
 namespace net = boost::asio;            // from <boost/asio.hpp>
-using tcp = boost::asio::ip::tcp;       // from <boost/asio/ip/tcp.hpp>
+using tcp = boost::asio::ip::tcp;       // from <boost/asio/ip/tcp.hpstream_.expires_never();p>
 
 //------------------------------------------------------------------------------
 
@@ -126,7 +126,7 @@ public:
       return fail(ec, "write");
 
     // Remove timeout; may terminate long download
-    stream_.expires_never();
+    //stream_.expires_never();
     
     // Receive the HTTP response
     http::async_read_header(stream_, buffer_, parser_,
